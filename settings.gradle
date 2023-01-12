@@ -13,6 +13,25 @@ pluginManagement {
     }
 }
 
+plugins {
+    id "com.gradle.enterprise" version "3.12.2"
+    id 'com.gradle.common-custom-user-data-gradle-plugin' version '1.8.2'
+}
+
+gradleEnterprise {
+    server = "https://ge.gradle.kurtzemann.fr/"
+    allowUntrustedServer = false
+    buildScan {
+        publishAlways()
+        capture {
+            taskInputFiles = true
+        }
+        uploadInBackground = System.getenv("CI") == null
+    }
+}
+
+rootProject.name = "jib"
+
 include ":jib-build-plan"
 include ":jib-plugins-extension-common"
 include ":jib-gradle-plugin-extension-api"
