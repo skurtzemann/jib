@@ -137,7 +137,7 @@ subprojects {
   }
   check.dependsOn verifyGoogleJavaFormat
   /* GOOGLE JAVA FORMAT */
-q
+
   /* CHECKSTYLE */
   checkstyle {
     toolVersion = '8.29'
